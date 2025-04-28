@@ -1,98 +1,41 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruta mas Corta con Vehiculos</title>
-    <!-- Bootstrap para estilos -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/static/style.css">
+    <title>Optimización de Ruta</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Contenedor principal -->
-    <div class="container py-4">
-        <!-- Título principal -->
-        <div class="row mb-4">
-            <div class="col text-center">
-                <h1 class="text-white bg-primary py-2 rounded">Rutas Cortas para tu Automovil</h1>
-            </div>
-        </div>
-
-        <!-- Sistema de dos columnas -->
-        <div class="row">
-            <!-- Columna izquierda: Formulario -->
-            <div class="col-md-6">
-                <form id="rutaForm" class="card bg-white shadow-sm p-3">
-                    <center><h5>Raúl Ciriaco Castillo 3601 ISIC</h5></center>
-                    <h4 class="text-primary">Ingresa los datos</h4>
-                    
-                    <!-- Campo de selección: Origen -->
-                    <div class="mb-3">
-                        <label for="origen" class="form-label">Origen:</label>
-                        <select id="origen" name="origen" class="form-select form-select-lg" required>
-                            <option value="">Selecciona un origen</option>
-                            <option value="EDO.MEX">Estado de México</option>
-                            <option value="QRO">Querétaro</option>
-                            <option value="CDMX">Ciudad de México</option>
-                            <option value="SLP">San Luis Potosí</option>
-                            <option value="MTY">Monterrey</option>
-                            <option value="PUE">Puebla</option>
-                            <option value="GDL">Guadalajara</option>
-                            <option value="MICH">Michoacán</option>
-                            <option value="SON">Sonora</option>
-                        </select>
-                    </div>
-
-                    <!-- Campo de selección: Almacén -->
-                    <div class="mb-3">
-                        <label for="almacen" class="form-label">Almacén:</label>
-                        <select id="almacen" name="almacen" class="form-select form-select-lg" required>
-                            <option value="">Selecciona un almacén</option>
-                            <option value="EDO.MEX">Estado de México</option>
-                            <option value="QRO">Querétaro</option>
-                            <option value="CDMX">Ciudad de México</option>
-                            <option value="SLP">San Luis Potosí</option>
-                            <option value="MTY">Monterrey</option>
-                            <option value="PUE">Puebla</option>
-                            <option value="GDL">Guadalajara</option>
-                            <option value="MICH">Michoacán</option>
-                            <option value="SON">Sonora</option>
-                        </select>
-                    </div>
-
-                    <!-- Campo de entrada: Capacidad máxima -->
-                    <div class="mb-3">
-                        <label class="form-label">Capacidad máxima del transporte (paquetes):</label>
-                        <input type="number" id="capacidad_maxima" class="form-control" placeholder="Ej. 50" min="1" required>
-                    </div>
-
-                    <!-- Lista de destinos y pedidos -->
-                    <div class="mb-3">
-                        <label class="form-label">Destinos y Pedidos:</label>
-                        <ol id="destinos" class="list-group list-group-numbered">
-                            <!-- Los destinos y campos se generarán dinámicamente -->
-                        </ol>
-                    </div>
-
-                    <!-- Botón de envío -->
-                    <button type="submit" class="btn btn-primary btn-lg w-100">Calcular</button>
-                </form>
-            </div>
-
-            <!-- Columna derecha: Resultados -->
-            <div class="col-md-6 d-flex justify-content-center align-items-center">
-                <div id="resultado" class="card bg-light p-3 shadow-sm w-100">
-                    <h4 class="text-primary text-center">Resultados Calculados</h4>
-                    <div id="resultadoContenido">
-                        <!-- Resultados calculados dinámicamente -->
-                    </div>
+    <div class="container">
+        <header class="header">
+            <h1>TSP con Hill Climbing🚗</h1>
+            
+        </header>
+        <main>
+            <center>
+            <form method="POST" action="/">
+                <button type="submit" class="optimize-button">Optimizar Ruta</button>
+            </form>
+            </center>
+            {% if ruta %}
+            <div class="results">
+                <h2>Resultados</h2>
+                <div class="result-box">
+                    <h3>Ruta Óptima</h3>
+                    <p class="route">{{ ruta | join(" → ") }}</p>
+                </div>
+                <div class="result-box">
+                    <h3>Distancia Total</h3>
+                    <p class="distance">{{ distancia_total }} km</p>
                 </div>
             </div>
-        </div>
+            {% endif %}
+        </main>
+        <footer class="footer">
+            <p>Raúl Ciriaco Castillo 3601 ISIC</p>
+        </footer>
     </div>
-
-    <!-- Bootstrap y script personalizado -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/static/script.js" defer></script>
 </body>
 </html>

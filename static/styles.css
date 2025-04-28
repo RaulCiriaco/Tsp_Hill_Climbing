@@ -1,0 +1,108 @@
+/* General styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #007bff, #5aec20); /* Fondo animado */
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    color: #f0f0f0; /* Texto claro sobre fondo oscuro */
+}
+
+/* Fondo animado */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Container */
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: #08236e; /* Fondo oscuro para el contenedor */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombras más marcadas */
+    border-radius: 10px;
+    border: 1px solid #007bff; /* Borde azul para contraste */
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: #5aec20; /* Verde vibrante para destacar el título */
+    margin: 0;
+}
+
+.header p {
+    color: #cccccc; /* Texto gris claro */
+}
+
+/* Button */
+.optimize-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.optimize-button:hover {
+    background-color: #0056b3;
+}
+
+/* Results */
+.results {
+    margin-top: 20px;
+}
+
+.results h2 {
+    text-align: center;
+    color: #5aec20; /* Verde vibrante para títulos */
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.result-box {
+    padding: 20px;
+    margin: 10px 0;
+    border: 1px solid #5aec20; /* Borde verde */
+    border-radius: 8px;
+    background: #262626; /* Fondo ligeramente más claro que el contenedor */
+}
+
+.result-box h3 {
+    font-size: 1.5rem;
+    color: #007bff; /* Azul profesional */
+    margin-bottom: 10px;
+}
+
+.result-box p {
+    font-size: 1.2rem;
+    color: #f0f0f0; /* Texto blanco */
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #777;
+}
+
+.footer p {
+    font-size: 0.9rem;
+    color: #cccccc; /* Gris claro */
+}
